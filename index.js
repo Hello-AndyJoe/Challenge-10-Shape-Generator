@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer"); // Logs inputs from prompts that are shown in the terminal.
 const fs = require("fs"); // Module that allows the code to write the READFILE.md within the computer file system.
-const shapes = require("./lib/shapes"); // Functions that builds out the code for the README file. 
+const makeShape = require("./lib/makeShape"); // Functions that builds out the code for the README file. 
 
 // The prompts that appear in the terminal.
 const logoTraits = [
@@ -64,9 +64,21 @@ function writeToFile(file, data) {
 // Function to initialize program.
 function init() {
     inquirer.prompt(logoTraits).then((data) => {
-        writeToFile("logo.svg", shapes(data));
+        writeToFile("./examples/logo.svg", shapes(data));
     });
 }
+
+function shapes(data) {
+    return `
+    <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  
+    <${makeShape(data.logoShape)} fill="${data.logoColor}" />
+  
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.characterColor}">${data.logoCharacters}</text>
+  
+    </svg>
+  `;
+  }
 
 // Function call to initialize app.
 init();
