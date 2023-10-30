@@ -9,6 +9,13 @@ const logoTraits = [
         type: "input",
         message: "Input Upto Three Characters: ",
         name: "logoCharacters",
+        validate: (characterInput) => {
+            if (characterInput.length > 3) {
+                return "No more than three characters allowed.";
+            } else {
+                return true;
+            }
+        }
     },
     {
         type: "list",
@@ -38,7 +45,7 @@ const logoTraits = [
     },
     {
         type: "list",
-        message: "Select Color of Logo: ",
+        message: "Select Color of Logo Shape: ",
         name: "logoColor",
         choices: [
             "Red", 
@@ -54,7 +61,7 @@ const logoTraits = [
     }
 ];
 
-// Function to write README file.
+// Function to create logo.svg file.
 function writeToFile(file, data) {
     fs.writeFile(file, data, (err) =>
         err ? console.log(err) : console.log("Logo generated.")
