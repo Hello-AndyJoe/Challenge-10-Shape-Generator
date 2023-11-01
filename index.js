@@ -1,7 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer"); // Logs inputs from prompts that are shown in the terminal.
 const fs = require("fs"); // Module that allows the code to write the READFILE.md within the computer file system.
-const makeShape = require("./lib/makeShape"); // Functions that builds out the code for the README file. 
+
+const Circle = require("./lib/circle")
+const Triangle = require("./lib/triangle")
+const Square = require("./lib/square")
 
 // The prompts that appear in the terminal.
 const logoTraits = [
@@ -64,28 +67,23 @@ const logoTraits = [
 // Function to create logo.svg file.
 function writeToFile(file, data) {
     fs.writeFile(file, data, (err) =>
-        err ? console.log(err) : console.log("Logo generated.")
+        err ? console.log(err) : console.log("Generated logo.svg")
     );
 }
 
 // Function to initialize program.
 function init() {
     inquirer.prompt(logoTraits).then((data) => {
-        writeToFile("./examples/logo.svg", shapes(data));
+    switch (data.logoShape) {
+        case "Circle":
+            return writeToFile("./examples/logo.svg", new Circle(data.logoColor, data.characterColor, data.logoCharacters).render());
+        case "Triangle":
+            return writeToFile("./examples/logo.svg", new Triangle(data.logoColor, data.characterColor, data.logoCharacters).render());
+        case "Square":
+            return writeToFile("./examples/logo.svg", new Square(data.logoColor, data.characterColor, data.logoCharacters).render());
+        }
     });
 }
-
-function shapes(data) {
-    return `
-    <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-  
-    <${makeShape(data.logoShape)} fill="${data.logoColor}" />
-  
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.characterColor}">${data.logoCharacters}</text>
-  
-    </svg>
-  `;
-  }
 
 // Function call to initialize app.
 init();
