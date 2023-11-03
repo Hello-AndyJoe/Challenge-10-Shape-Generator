@@ -12,6 +12,7 @@ const logoTraits = [
         type: "input",
         message: "Input Upto Three Characters: ",
         name: "logoCharacters",
+        // This check to see if the user input more than 3 characters. If they did, it will proceed to the next prompt until their answer is 3 characters or less.
         validate: (characterInput) => {
             if (characterInput.length > 3) {
                 return "No more than three characters allowed.";
