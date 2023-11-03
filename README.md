@@ -25,7 +25,7 @@
 
 
 
-![Screenshot of Note Taker Application](./assets/express_notetaker_screenshot.png)
+![Screenshot]()
 
 
 ## Contributions
