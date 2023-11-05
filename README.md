@@ -24,7 +24,7 @@ In the early stages of producing a web application, it can be helpful to have pl
 
 Once the required software has been successfully installed on the computer, clone this GitHub repository to a desired folder on the computer.
 
-[The Repository of the Shape Logo Generator](https://github.com/Hello-AndyJoe/Challenge-9-README-Generator)
+[The Repository of the Shape Logo Generator](https://github.com/Hello-AndyJoe/Challenge-10-Shape-Generator)
 
 The repository does not include the modules from the Inquirer or Jest NPM. Install them into the clone repository by running `npm i` in a GitBash terminal within Visual Studio Code. 
 
