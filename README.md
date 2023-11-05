@@ -55,7 +55,7 @@ Included in this application is a JavaScript file that will initiate a series of
 
 The results for the test should be successful as shown below:
 
-(![Logo Generator Test Results](./assets/challenge_10_test_results.png))
+![Logo Generator Test Results](./assets/challenge_10_test_results.png)
 
 
 ## License
